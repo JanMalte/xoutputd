@@ -1,0 +1,5 @@
+*.o
+parse.c
+scan.c
+xoutputd
+y.tab.h

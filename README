@@ -1,0 +1,72 @@
+xoutputd
+========
+
+xoutputd is a daemon that monitors the connection state of outputs and
+then executes commands based on defined rules.
+
+The main use-case is to change, via an xrandr call, the screen layout
+when monitors are being connected/disconnected.
+
+
+How to build it
+===============
+
+xoutputd depends on:
+
+    * libX11
+    * libXrandr
+    * lex compatible lexer generator
+    * yacc compatible parser generator
+
+To build:
+
+    cd xoutputd
+    make
+
+The Makefile has been tested with GNU make and NetBSD make.
+
+
+How to use it
+=============
+
+xoutputd is intended to be executed via the ~/.xsession script:
+
+   xoutputd &
+
+Outputs and errors will be written in the ~/.xsession-errors file.
+
+
+Configuration file
+==================
+
+The default configuration file is "$HOME/.xoutputdrc" but another file
+can be specified with the -f switch.
+
+Comments can be anywhere in the file, they start with a hash mark (#)
+and extend to the end of the line.
+
+The configuration file is composed of one or multiple rules. A rule
+describes the state of outputs and the command to execute when the
+connection of those outputs will be in the described state.
+
+The rules are evaluated in order, and the first one to match will
+decide the command to execute.
+
+The syntax of a rule is as follow:
+
+   when `output_name` [ + `output_name` ]* (connected | disconnected) exec "command"
+
+The command to execute must be surrounded by double-quotes.
+
+A rule can be splitted on multiple lines.
+
+
+Configuration example
+=====================
+
+    # disable all outputs when HDMI1 and DP2 are disconnected
+    when HDMI1+DP2 disconnected
+    exec "xrandr --output HDMI1 --off --output DP2 --off --output eDP1 --mode 1920x1080 --pos 0x0 --rotate normal"
+
+    # execute a script when two monitors are plugged-in
+    when HDMI1+DP2 connected exec "sh ~/.screenlayout/dual_monitors.sh"
