@@ -58,7 +58,7 @@ The syntax of a rule is as follow:
 
 The command to execute must be surrounded by double-quotes.
 
-A rule can be splitted on multiple lines.
+A rule can be split on multiple lines.
 
 
 Configuration example
