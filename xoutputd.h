@@ -1,5 +1,5 @@
-#ifndef _XOUTPUTD_H_
-# define _XOUTPUTD_H_
+#ifndef XOUTPUTD_H
+# define XOUTPUTD_H
 
 typedef struct output_s {
 	char* name;
@@ -25,4 +25,4 @@ output_t *lookup_output_by_name(const char *);
 output_t *new_output(char *, RROutput, Connection);
 rule_t *new_rule(output_list_t *, Connection, char *);
 
-#endif /* !_XOUTPUTD_H_ */
+#endif /* !XOUTPUTD_H */

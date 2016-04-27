@@ -1,7 +1,7 @@
-#ifndef _XMALLOC_H_
-# define _XMALLOC_H_
+#ifndef XMALLOC_H
+# define XMALLOC_H
 
 void *xcalloc(size_t, size_t);
 char *xstrdup(const char *);
 
-#endif /* !_XMALLOC_H_ */
+#endif /* !XMALLOC_H */

@@ -1,5 +1,5 @@
-#ifndef _LIST_H_
-# define _LIST_H_
+#ifndef LIST_H
+# define LIST_H
 
 #define DECLARE_LIST(name)				\
 	typedef struct {				\
@@ -28,4 +28,4 @@
 	    (item);					\
 	    (item) = LIST_NEXT(item))
 
-#endif /* !_LIST_H_ */
+#endif /* !LIST_H */
