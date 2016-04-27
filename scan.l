@@ -32,7 +32,7 @@
 "exec"		{ return EXEC; }
 "when"		{ return WHEN; }
 
-[a-zA-Z0-9]+	{
+[a-zA-Z][a-zA-Z0-9\-]*	{
     yylval.str = yytext;
     return OUTPUT_NAME;
 }
