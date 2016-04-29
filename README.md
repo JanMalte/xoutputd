@@ -1,11 +1,11 @@
-xoutputd
-========
+About xoutputd
+==============
 
 xoutputd is a daemon that monitors the connection state of outputs and
 then executes commands based on defined rules.
 
-The main use-case is to change, via an xrandr call, the screen layout
-when monitors are being connected/disconnected.
+The main use-case is to change, via an `xrandr` call, the screen
+layout when monitors are being connected/disconnected.
 
 
 How to build it
@@ -29,17 +29,17 @@ The Makefile has been tested with GNU make and NetBSD make.
 How to use it
 =============
 
-xoutputd is intended to be executed via the ~/.xsession script:
+xoutputd is intended to be executed via the `~/.xsession` script:
 
-   xoutputd &
+    xoutputd &
 
-Outputs and errors will be written in the ~/.xsession-errors file.
+Outputs and errors will be written in the `~/.xsession-errors` file.
 
 
 Configuration file
 ==================
 
-The default configuration file is "$HOME/.xoutputdrc" but another file
+The default configuration file is `$HOME/.xoutputdrc` but another file
 can be specified with the -f switch.
 
 Comments can be anywhere in the file, they start with a hash mark (#)
@@ -54,7 +54,7 @@ decide the command to execute.
 
 The syntax of a rule is as follow:
 
-   when `output_name` [ + `output_name` ]* (connected | disconnected) exec "command"
+    when `output_name` [ + `output_name` ]* (connected | disconnected) exec "command"
 
 The command to execute must be surrounded by double-quotes.
 
