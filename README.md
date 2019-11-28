@@ -26,6 +26,11 @@ To build:
 The Makefile has been tested with GNU make and NetBSD make.
 
 
+Ubuntu dependencies
+-------------------------
+    $ sudo apt install bison libbison-dev
+
+
 How to use it
 =============
 
